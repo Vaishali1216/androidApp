@@ -15,7 +15,7 @@ public class AppDatabase extends SQLiteOpenHelper {
     private static final int DATA_VERSION= 1;
     private static final String DATABASE_NAME = "main.db";
     private static final String TABLE_NAME = "user_information";
-    private static final String COLUMN_ID = "id";
+//    private static final String COLUMN_ID = "id";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
     SQLiteDatabase db;
@@ -48,10 +48,10 @@ public class AppDatabase extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        String query = "select * from " + TABLE_NAME;
-        Cursor cursor = db.rawQuery(query, null);
-        int idCount = cursor.getCount();
-        values.put(COLUMN_ID, idCount);
+//        String query = "select * from " + TABLE_NAME;
+//        Cursor cursor = db.rawQuery(query, null);
+//        int idCount = cursor.getCount();
+//        values.put(COLUMN_ID, idCount);
 
         values.put(COLUMN_USERNAME, info.getUsername());
         values.put(COLUMN_PASSWORD, info.getPassword());
@@ -66,7 +66,7 @@ public class AppDatabase extends SQLiteOpenHelper {
     * */
     public String searchPassword(String username){
         db = this.getReadableDatabase();
-        String query = "select * username, password from " + TABLE_NAME; //fetching the values
+        String query = "select username, password from " + TABLE_NAME; //fetching the values
         Cursor cursor = db.rawQuery(query, null);
 
         String getUsername;

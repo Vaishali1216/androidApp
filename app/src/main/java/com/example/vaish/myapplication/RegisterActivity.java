@@ -3,6 +3,7 @@ package com.example.vaish.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,11 +27,15 @@ public class RegisterActivity extends Activity{
 
 
             EditText uname = (EditText)findViewById(R.id.username);
+
             String uname_str = uname.getText().toString();
+
             EditText pass = (EditText)findViewById(R.id.password);
             String pass_str = pass.getText().toString();
             EditText confirmPass = (EditText)findViewById(R.id.confirmPassword);
             String confirmPass_str = confirmPass.getText().toString();
+            Log.d("username", uname_str);
+            Log.d("password", pass_str);
 
 //            Intent i = new Intent(RegisterActivity.this, HomeActivity.class);
 //            i.putExtra("Username", uname_str);

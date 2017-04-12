@@ -15,13 +15,13 @@ public class AppDatabase extends SQLiteOpenHelper {
     private static final int DATA_VERSION= 1;
     private static final String DATABASE_NAME = "main.db";
     private static final String TABLE_NAME = "user_information";
-//    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_ID = "id";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
     SQLiteDatabase db;
 
     //query
-    private static final String TABLE_CREATE = "create table user_information (id integer primary key not null auto_increment , " +
+    private static final String TABLE_CREATE = "create table user_information (id integer primary key not null , " +
             "username text not null, password text not null);";
 
     public AppDatabase(Context context){
@@ -48,10 +48,10 @@ public class AppDatabase extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-//        String query = "select * from " + TABLE_NAME;
-//        Cursor cursor = db.rawQuery(query, null);
-//        int idCount = cursor.getCount();
-//        values.put(COLUMN_ID, idCount);
+        String query = "select * from " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        int idCount = cursor.getCount();
+        values.put(COLUMN_ID, idCount);
 
         values.put(COLUMN_USERNAME, info.getUsername());
         values.put(COLUMN_PASSWORD, info.getPassword());

@@ -5,8 +5,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="139dp"
-        android:layout_weight="1"
-        android:text="OK Here" />
+        android:layout_width="82dp"
+        android:layout_height="42dp"
+        android:text="Welcome," />
+
+    <TextView
+        android:id="@+id/displayUsername"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
 </LinearLayout>

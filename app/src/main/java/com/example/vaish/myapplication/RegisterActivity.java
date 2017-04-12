@@ -27,9 +27,7 @@ public class RegisterActivity extends Activity{
 
 
             EditText uname = (EditText)findViewById(R.id.username);
-
             String uname_str = uname.getText().toString();
-
             EditText pass = (EditText)findViewById(R.id.password);
             String pass_str = pass.getText().toString();
             EditText confirmPass = (EditText)findViewById(R.id.confirmPassword);
@@ -44,7 +42,7 @@ public class RegisterActivity extends Activity{
             if(!pass_str.equals(confirmPass_str)){
 
                 //Pop up message if passwords don't match
-                Toast error = Toast.makeText(RegisterActivity.this, "Passwords don't match", Toast.LENGTH_SHORT);
+                Toast error = Toast.makeText(RegisterActivity.this, "Passwords don't match", Toast.LENGTH_LONG);
                 error.show();
             }
             else
@@ -55,6 +53,10 @@ public class RegisterActivity extends Activity{
                 userInfo_obj.setPassword(pass_str);
 
                 database_obj.insertInfo(userInfo_obj);
+
+                //Pop message after registered
+                Toast reg_message = Toast.makeText(RegisterActivity.this, "Now go back to login form!", Toast.LENGTH_LONG);
+                reg_message.show();
             }
 
         }

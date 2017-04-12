@@ -16,6 +16,7 @@ public class HomeActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        //gets the user's name and displays it in the home screen
         String username = getIntent().getStringExtra("Username");
         TextView displayUname = (TextView)findViewById(R.id.displayUsername);
         displayUname.setText(username);

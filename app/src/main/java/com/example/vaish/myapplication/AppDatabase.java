@@ -15,7 +15,6 @@ public class AppDatabase extends SQLiteOpenHelper {
     private static final int DATA_VERSION= 1;
     private static final String DATABASE_NAME = "main.db";
     private static final String TABLE_NAME = "user_information";
-//    private static final String COLUMN_ID = "id";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
     SQLiteDatabase db;
@@ -27,6 +26,7 @@ public class AppDatabase extends SQLiteOpenHelper {
     public AppDatabase(Context context){
         super(context, DATABASE_NAME, null, DATA_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db){
         db.execSQL(TABLE_CREATE);
@@ -40,10 +40,11 @@ public class AppDatabase extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    /*
-    * This function will only be called from Register form
-    * Inserting user's information into the database
-    * */
+    /**
+     * This function will only be called from the Register form
+     * Inserting user's information into the database
+     * @param info
+     */
     public void insertInfo(UserInformation info){
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -60,14 +61,15 @@ public class AppDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
-    /*
-    * This function will only be called from Login form
-    *
-    * */
+    /**
+     * This function will only be called from the Login form
+     * @param username
+     * @return
+     */
     public String searchPassword(String username){
         db = this.getReadableDatabase();
         String query = "select username, password from " + TABLE_NAME; //fetching the values
-        Cursor cursor = db.rawQuery(query, null);
+        Cursor cursor = db.rawQuery(query, null); //it allows to read and write from the database
 
         String getUsername;
         String getPassword = "Password not found";

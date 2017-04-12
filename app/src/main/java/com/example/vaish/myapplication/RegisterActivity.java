@@ -22,6 +22,11 @@ public class RegisterActivity extends Activity{
         setContentView(R.layout.resgiter);
     }
 
+    /**
+     *
+     *Takes in a View object which usually represents a rectangular area on the prototype
+     * @param v
+     */
     public void onRegisterClick(View v){
         if(v.getId() == R.id.register){
 
@@ -32,13 +37,9 @@ public class RegisterActivity extends Activity{
             String pass_str = pass.getText().toString();
             EditText confirmPass = (EditText)findViewById(R.id.confirmPassword);
             String confirmPass_str = confirmPass.getText().toString();
-            Log.d("username", uname_str);
-            Log.d("password", pass_str);
 
-//            Intent i = new Intent(RegisterActivity.this, HomeActivity.class);
-//            i.putExtra("Username", uname_str);
-//            startActivity(i);
-
+            //checks if the password and the confirm password are the same if not then there will be a pop up
+            //it won't register if it's different
             if(!pass_str.equals(confirmPass_str)){
 
                 //Pop up message if passwords don't match

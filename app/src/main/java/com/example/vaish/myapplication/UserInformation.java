@@ -8,7 +8,6 @@ import android.util.Log;
 
 public class UserInformation {
 
-//    int id;
     public String username;
     public String password;
 
@@ -21,13 +20,10 @@ public class UserInformation {
 //    }
 
     public void setUsername(String username){
-
         this.username = username;
-        Log.d("SET username", this.username);
     }
 
     public String getUsername(){
-        Log.d("GET username", this.username);
         return this.username;
     }
 

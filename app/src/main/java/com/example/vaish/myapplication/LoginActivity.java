@@ -17,6 +17,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
+    /**
+     * the "login button" will call this function
+     *
+     * @param v
+     */
     public void onButtonClick(View v){
         if(v.getId() == R.id.sign_in){
 
@@ -25,8 +30,10 @@ public class LoginActivity extends AppCompatActivity {
             EditText pass = (EditText)findViewById(R.id.password);
             String pass_str = pass.getText().toString();
 
-            String password = database_obj.searchPassword(uname_str);   //retrieving the
+            //retrieving the password from the database
+            String password = database_obj.searchPassword(uname_str);
 
+            //check if the input password and the password from the database is the same
             if(pass_str.equals(password)){
                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                 i.putExtra("Username", uname_str);
@@ -39,6 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Calls the Register activity which will display a xml file
+     * @param v
+     */
     public void onRegisterClick(View v){
         if(v.getId() == R.id.register){
             Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
